@@ -80,6 +80,7 @@ class _MyAccountState extends State<MyAccount> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(120),
         child: AppBar(
+          backgroundColor: Colors.greenAccent,
           automaticallyImplyLeading: false,
           title: Text('My Account'),
           centerTitle: true,
