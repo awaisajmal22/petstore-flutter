@@ -198,7 +198,7 @@ class _SignInState extends State<SignIn> {
       await _auth
           .signInWithEmailAndPassword(email: email, password: password)
           .then((uid) {
-        Navigator.of(widget.singinContext).pushReplacement(
+        Navigator.of(widget.singinContext).push(
             MaterialPageRoute(builder: (context) => MyAccount()));
         setState(() {
           isValidate = true;

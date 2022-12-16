@@ -70,8 +70,7 @@ Future dialogBox({required BuildContext context}) {
                               Navigator.of(dailogContext).pop();
                               Provider.of<SharedPref>(context,listen: false).removeData();
     FirebaseAuth.instance.signOut();
-    Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => AccountScreen(selectedPage: 0)));
+    Navigator.popUntil(context, ModalRoute.withName('/'));
                               
                             },
                             height: 60,

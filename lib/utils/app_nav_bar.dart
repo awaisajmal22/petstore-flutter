@@ -66,7 +66,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
               RouteAndNavigatorSettings(initialRoute: '/HomeScreen', routes: {
             // CategoryScreen.routeName: (context) => CategoryScreen(),
             ShopByBrands.routeName: (context) => ShopByBrands(),
-            CartScreen.routeName: (context) => CartScreen()
+            CartScreen.routeName: (context) => CartScreen(),
           })),
       PersistentBottomNavBarItem(
         icon: const Icon(Icons.star),
@@ -95,7 +95,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           inactiveColorPrimary: Colors.grey,
           routeAndNavigatorSettings:
               RouteAndNavigatorSettings(
-                initialRoute: pref.user == null ? '/accountscreen' : '/myaccountScreen',
+                initialRoute: '/',
                 routes: {
                   
                 }

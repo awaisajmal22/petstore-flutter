@@ -74,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     data: getData),
                 GestureDetector(
                   onTap: () {
-                    Navigator.of(context).pushNamed(ShopByBrands.routeName);
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=> ShopByBrands()));
                   },
                   child: Container(
                     margin: EdgeInsets.only(bottom: 80),

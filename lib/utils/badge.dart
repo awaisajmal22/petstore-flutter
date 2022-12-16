@@ -23,7 +23,7 @@ class Badge extends StatelessWidget {
       children: [
         GestureDetector(
       onTap: (){
-Navigator.of(context).pushNamed(CartScreen.routeName);
+Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CartScreen()));
       },
       child: Icon(Icons.shopping_cart,size: 30,color: Colors.white,),
       
