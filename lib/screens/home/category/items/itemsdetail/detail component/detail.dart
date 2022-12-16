@@ -172,7 +172,9 @@ class Detail extends StatelessWidget {
               width: width,
               color: AppColor.lightgrey,
               child: AppTextButton.appTextButton(
-                onTap: (){}, 
+                onTap: (){
+                  
+                }, 
                 height: 80, 
                 width: width, 
                 textAlignment: Alignment.center, 
