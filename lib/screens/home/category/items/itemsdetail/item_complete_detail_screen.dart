@@ -36,7 +36,7 @@ class _ItemCompleteDetailScreenState extends State<ItemCompleteDetailScreen>
         elevation: 0,
         title: pageTitle(text: 'Product Details'),
         centerTitle: true,
-        backgroundColor: AppColor.greenText,
+        backgroundColor: AppColor.green,
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(60),
           child: Container(

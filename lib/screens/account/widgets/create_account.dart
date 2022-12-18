@@ -224,39 +224,43 @@ class _CreateAccountState extends State<CreateAccount> {
       setState(() {
         isValidate = false;
         Snackbar.snackBar(
+          textColor: Colors.white,
           color: Colors.red,
-            height: height, error: 'First Name is required', context: context);
+           error: 'First Name is required', context: context);
       });
     } else if (lastNameController.text.isEmpty) {
       setState(() {
         isValidate = false;
         Snackbar.snackBar(
+          textColor: Colors.white,
           color: Colors.red,
-            height: height, error: 'Last Name is required', context: context);
+           error: 'Last Name is required', context: context);
       });
     } else if (emailController.text.isEmpty) {
       setState(() {
         isValidate = false;
         Snackbar.snackBar(
+          textColor: Colors.white,
           color: Colors.red,
-            height: height, error: 'Email is required', context: context);
+           error: 'Email is required', context: context);
       });
     } else if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
         .hasMatch(emailController.text)) {
       setState(() {
         isValidate = false;
         Snackbar.snackBar(
+          textColor: Colors.white,
           color: Colors.red,
             error: 'Please Enter Valid Email',
             context: context,
-            height: height);
+           );
       });
     } else if (phoneController.text.isEmpty) {
       setState(() {
         isValidate = false;
         Snackbar.snackBar(
+          textColor: Colors.white,
           color: Colors.red,
-            height: height,
             error: 'Phone Number is required',
             context: context);
       });
@@ -264,24 +268,26 @@ class _CreateAccountState extends State<CreateAccount> {
       setState(() {
         isValidate = false;
         Snackbar.snackBar(
+          textColor: Colors.white,
           color: Colors.red,
-            error: 'Password is required', context: context, height: height);
+            error: 'Password is required', context: context,
+            );
       });
     } else if (!RegExp(r'^.{6,}$').hasMatch(passwordController.text)) {
       setState(() {
         isValidate = false;
         Snackbar.snackBar(
+          textColor: Colors.white,
           color: Colors.red,
             error: 'Please Enter Valid Password',
-            context: context,
-            height: height);
+            context: context,);
       });
     } else if (confirmPasswordController.text.isEmpty) {
       setState(() {
         isValidate = false;
         Snackbar.snackBar(
+          textColor: Colors.white,
           color: Colors.red,
-            height: height,
             error: 'Confirm Password required',
             context: context);
       });
@@ -289,15 +295,18 @@ class _CreateAccountState extends State<CreateAccount> {
       setState(() {
         isValidate = false;
         Snackbar.snackBar(
+          textColor: Colors.white,
           color: Colors.red,
-            height: height, error: 'Password do not match', context: context);
+           error: 'Password do not match', context: context);
       });
     } else if (_formKey.currentState!.validate()) {
       setState(() {
         isValidate = true;
         Snackbar.snackBar(
+          textColor: Colors.white,
           color: Colors.red,
-            error: 'Successfully Login', context: context, height: height);
+            error: 'Successfully Login', context: context,
+            );
       });
     }
   }

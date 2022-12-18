@@ -54,47 +54,47 @@ class _HomeScreenState extends State<HomeScreen> {
       title: null,
         context: context,
       ),
-      body: Stack(
-        children: [
-          Container(
+      body: Container(
+            height: 67 * SizeConfig.heightMultiplier,
             width: width,
-            margin: EdgeInsets.only(left: 10, right: 10, bottom: 10),
-            child: ListView(
-              physics: BouncingScrollPhysics(),
-              shrinkWrap: true,
+            margin: EdgeInsets.only(left: 10, right: 10,),
+            child: Stack(
               children: [
-                carouselSlider(),
-                appText(
-                    text: 'Shop by Category', textAlignment: TextAlign.left),
-                SizedBox(height: 10),
-                HomeGridView(
-                    context: context,
-                    height: height,
-                    width: width,
-                    data: getData),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=> ShopByBrands()));
-                  },
-                  child: Container(
-                    margin: EdgeInsets.only(bottom: 80),
-                    padding: EdgeInsets.all(20),
-                    height: 150,
-                    width: width,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        image: DecorationImage(
-                            image:
-                                AssetImage('assets/Dashboard/shopbyBrand.png'),
-                            fit: BoxFit.cover)),
-                  ),
-                )
-              ],
-            ),
-          ),
-          pref.check == false
+                ListView(
+                  physics: BouncingScrollPhysics(),
+                  shrinkWrap: true,
+                  children: [
+                    carouselSlider(),
+                    appText(
+                        text: 'Shop by Category', textAlignment: TextAlign.left),
+                    SizedBox(height: 10),
+                    HomeGridView(
+                        context: context,
+                        height: height,
+                        width: width,
+                        data: getData),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> ShopByBrands()));
+                      },
+                      child: Container(
+                        margin: EdgeInsets.only(bottom: 20),
+                        padding: EdgeInsets.all(20),
+                        height: 150,
+                        width: width,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            image: DecorationImage(
+                                image:
+                                    AssetImage('assets/Dashboard/shopbyBrand.png'),
+                                fit: BoxFit.cover)),
+                      ),
+                    )
+                  ],
+                ),
+                pref.check == false
               ? Positioned(
-                  bottom: height * 0.078,
+                  bottom: 0,
                   child: Container(
                     padding: EdgeInsets.all(10),
                     width: width,
@@ -128,8 +128,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ))
               : Container(),
-        ],
-      ),
+              ],
+            ),
+          ),
+          
     );
   }
 }

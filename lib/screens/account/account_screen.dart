@@ -59,6 +59,8 @@ class _AccountScreenState extends State<AccountScreen>
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
+        title: pageTitle(text: _myTabs!.title),
+        centerTitle: true,
         elevation: 0,
         backgroundColor: AppColor.green,
         automaticallyImplyLeading: false,
@@ -71,7 +73,6 @@ class _AccountScreenState extends State<AccountScreen>
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  pageTitle(text: _myTabs!.title),
                   SizedBox(
                     height: 40,
                   ),

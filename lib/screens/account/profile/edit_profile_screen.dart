@@ -7,6 +7,7 @@ import 'package:petstore/utils/app_text.dart';
 import 'package:petstore/utils/app_text_button.dart';
 import 'package:petstore/utils/colors.dart';
 import 'package:petstore/utils/customeAppBar.dart';
+import 'package:petstore/utils/size_config.dart';
 import 'package:petstore/utils/textfeild.dart';
 
 class EditProfileScreen extends StatelessWidget {
@@ -22,14 +23,15 @@ class EditProfileScreen extends StatelessWidget {
       appBar: customAppBar(
           context: context,
           title: 'Edit Profile',
-          actionButton: TextButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
+          actionButton: AppTextButton.appTextButton(
+            onTap: (){
+              Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => EditPasswordScreen()));
-              },
-              child: appText(
-                  text: 'Edit Password', color: Colors.white, fontsize: 15)),
-                  searchButton: Container()
+            }, height: 40, width: 20 * SizeConfig.widthMultiplier, textAlignment: Alignment.centerRight, text: 'Edit Password',
+             textFontWeight: FontWeight.w400, 
+             textColor: Colors.white, 
+             buttonColor: Colors.transparent, radius: 0, textFontSize: 10),
+           searchButton: Container()
                   ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: width * 0.060, vertical: 60),

@@ -78,109 +78,114 @@ class _MyAccountState extends State<MyAccount> {
     return Scaffold(
       backgroundColor: AppColor.lightgrey,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(120),
+        preferredSize: Size.fromHeight(80),
         child: AppBar(
+          elevation: 0,
           backgroundColor: Colors.greenAccent,
           automaticallyImplyLeading: false,
           title: Text('My Account'),
           centerTitle: true,
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(children: [
-          SizedBox(
-            height: 20,
-          ),
-          Container(
-            height: 200,
-            width: 200,
-            decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/logos/logo.png'),
-                    fit: BoxFit.cover)),
-          ),
-          Container(
-            width: width,
-            margin: EdgeInsets.symmetric(horizontal: width * 0.030),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                appText(text: "we're here for you 24/7"),
-                SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: List.generate(
-                      2,
-                      (index) => AppTextButton.appTextButton(
-                          onTap: onPressed[index],
-                          height: 40,
-                          width: width * 0.45,
-                          textAlignment: Alignment.center,
-                          text: callandEmail[index],
-                          textFontWeight: FontWeight.w500,
-                          textColor: Colors.black,
-                          buttonColor: Colors.white,
-                          radius: 30,
-                          textFontSize: 20)),
-                ),
-                SizedBox(
-                  height: 60,
-                ),
-                appText(text: 'My Info'),
-              ],
+      body: Container(
+        height: 76.5 * SizeConfig.heightMultiplier,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+            SizedBox(
+              height: 20,
             ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 10),
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            height: 400,
-            width: width,
-            decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20))),
-            child: ListView.builder(
-                controller: ScrollController(keepScrollOffset: false),
-                itemCount: 5,
-                itemBuilder: (context, index) {
-                  return GestureDetector(
-                    onTap: listTileButton[index],
-                    child: Container(
-                      padding: EdgeInsets.only(top: 10, bottom: 10),
-                      decoration: BoxDecoration(
-                          border: Border(
-                              top: index == 0
-                                  ? BorderSide(color: Colors.white)
-                                  : BorderSide(
-                                      width: 1,
-                                      color: Colors.black.withOpacity(0.5)))),
-                      child: Row(
-                        children: [
-                          Container(
-                            height: 20,
-                            width: 20,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage(lisTileLeadingIcon[index])),
+            Container(
+              height: 200,
+              width: 200,
+              decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/logos/logo.png'),
+                      fit: BoxFit.cover)),
+            ),
+            Container(
+              width: width,
+              margin: EdgeInsets.symmetric(horizontal: width * 0.030),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  appText(text: "we're here for you 24/7"),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: List.generate(
+                        2,
+                        (index) => AppTextButton.appTextButton(
+                            onTap: onPressed[index],
+                            height: 40,
+                            width: width * 0.45,
+                            textAlignment: Alignment.center,
+                            text: callandEmail[index],
+                            textFontWeight: FontWeight.w500,
+                            textColor: Colors.black,
+                            buttonColor: Colors.white,
+                            radius: 30,
+                            textFontSize: 20)),
+                  ),
+                  SizedBox(
+                    height: 60,
+                  ),
+                  appText(text: 'My Info'),
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 10),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              height: 400,
+              width: width,
+              decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20))),
+              child: ListView.builder(
+                  controller: ScrollController(keepScrollOffset: false),
+                  itemCount: 5,
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                      onTap: listTileButton[index],
+                      child: Container(
+                        padding: EdgeInsets.only(top: 10, bottom: 10),
+                        decoration: BoxDecoration(
+                            border: Border(
+                                top: index == 0
+                                    ? BorderSide(color: Colors.white)
+                                    : BorderSide(
+                                        width: 1,
+                                        color: Colors.black.withOpacity(0.5)))),
+                        child: Row(
+                          children: [
+                            Container(
+                              height: 20,
+                              width: 20,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: AssetImage(lisTileLeadingIcon[index])),
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          appText(text: listTileName[index]),
-                          Spacer(),
-                          Icon(Icons.navigate_next)
-                        ],
+                            SizedBox(
+                              width: 20,
+                            ),
+                            appText(text: listTileName[index]),
+                            Spacer(),
+                            Icon(Icons.navigate_next)
+                          ],
+                        ),
                       ),
-                    ),
-                  );
-                }),
-          ),
-        ]),
+                    );
+                  }),
+            ),
+          ]),
+        ),
       ),
     );
   }

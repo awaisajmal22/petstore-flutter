@@ -72,20 +72,23 @@ class _CategoryScreenState extends State<CategoryScreen> {
                     size: 30,
                   )),
       ),
-      body: ListView(
-        children: [
-          categoryNameWithImage(
-              categoryName: widget.categoryName,
-              image: widget.image,
-              color: widget.color),
-          categoryGridView(
-            context: context,
-            productImage: widget.productImage,
-          ),
-          SizedBox(
-            height: 7.5 * SizeConfig.heightMultiplier,
-          )
-        ],
+      body: Container(
+        height: 78.5 * SizeConfig.heightMultiplier,
+        child: ListView(
+          children: [
+            categoryNameWithImage(
+                categoryName: widget.categoryName,
+                image: widget.image,
+                color: widget.color),
+            categoryGridView(
+              context: context,
+              productImage: widget.productImage,
+            ),
+            SizedBox(
+              height: 7.5 * SizeConfig.heightMultiplier,
+            )
+          ],
+        ),
       ),
     );
   }

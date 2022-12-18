@@ -18,37 +18,36 @@ class Badge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        GestureDetector(
+    return GestureDetector(
       onTap: (){
-Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CartScreen()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CartScreen()));
       },
-      child: Icon(Icons.shopping_cart,size: 30,color: Colors.white,),
-      
-      ),
-        Positioned(
-          right: 0,
-          top: 8,
-          child: Container(
-            padding: EdgeInsets.all(2.0),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                color: color != null ? color : Color.fromARGB(177, 20, 20, 1)),
-            constraints: BoxConstraints(
-              minWidth: 20,
-              minHeight: 20,
-            ),
-            child: Center(
-              child: Text(
-                value,
-                style: TextStyle(fontSize: 10, fontWeight: FontWeight.w600),
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+         Icon(Icons.shopping_cart,size: 30,color: Colors.white,),
+          Positioned(
+            right: 0,
+            top: 8,
+            child: Container(
+              padding: EdgeInsets.all(2.0),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  color: color != null ? color : Color.fromARGB(177, 20, 20, 1)),
+              constraints: BoxConstraints(
+                minWidth: 20,
+                minHeight: 20,
+              ),
+              child: Center(
+                child: Text(
+                  value,
+                  style: TextStyle(fontSize: 10, fontWeight: FontWeight.w600),
+                ),
               ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

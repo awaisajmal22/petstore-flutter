@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:petstore/utils/app_text_button.dart';
+import 'package:petstore/utils/colors.dart';
+import 'package:petstore/utils/customeAppBar.dart';
+import 'package:petstore/utils/snack_bar.dart';
 import 'package:petstore/utils/textfeild.dart';
 
 class ForgetPassword extends StatefulWidget {
@@ -17,9 +20,11 @@ class _ForgetPasswordState extends State<ForgetPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Forgot Password'),
-        centerTitle: true,
+      appBar:  customAppBar(
+              context: context,
+              title: 'Forgot Password',
+              actionButton: Container(),
+              searchButton: Container(),
       ),
       body: ListView(
         padding: EdgeInsets.only(left: 30, right: 30),
@@ -28,7 +33,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
             height: 60,
           ),
           SigninAndSignupTextField.textFormField(
-            readOnly: false,
+              readOnly: false,
               hintText: 'Email',
               label: 'Email',
               labelFontFamily: '',
@@ -50,7 +55,13 @@ class _ForgetPasswordState extends State<ForgetPassword> {
             height: 50,
           ),
           AppTextButton.appTextButton(
-              onTap: () {},
+              onTap: () {
+                Snackbar.snackBar(
+                  textColor: AppColor.green,
+                    error: 'Enter Email',
+                    context: context,
+                    color: Colors.white);
+              },
               height: 60,
               width: widget.width,
               textAlignment: Alignment.center,

@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:petstore/screens/home/category/items/itemsdetail/items_info_screen.dart';
 import 'package:petstore/utils/colors.dart';
 import 'package:petstore/utils/customeAppBar.dart';
+import 'package:petstore/utils/size_config.dart';
 
 import '../../../../utils/badge.dart';
 import '../../../cart/cart_screen.dart';
@@ -32,15 +33,18 @@ class ProductItemsScreen extends StatelessWidget {
                     size: 30,
                   )),
         ),
-      body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 10),
-        shrinkWrap: true,
-        physics: BouncingScrollPhysics(),
-        children: [
-          SizedBox(height: 60),
-          productItemsGridView(context),
-          SizedBox(height: 60),
-        ],
+      body: Container(
+        height: 78.5 * SizeConfig.heightMultiplier,
+        child: ListView(
+          padding: EdgeInsets.symmetric(horizontal: 10),
+          shrinkWrap: true,
+          physics: BouncingScrollPhysics(),
+          children: [
+            SizedBox(height: 60),
+            productItemsGridView(context),
+            SizedBox(height: 60),
+          ],
+        ),
       ),
     );
   }

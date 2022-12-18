@@ -161,8 +161,8 @@ class _SignInState extends State<SignIn> {
       setState(() {
         isValidate = false;
         Snackbar.snackBar(
+          textColor: Colors.white,
             color: Colors.red,
-            height: height,
             error: 'Email is required',
             context: context);
       });
@@ -171,28 +171,31 @@ class _SignInState extends State<SignIn> {
       setState(() {
         isValidate = false;
         Snackbar.snackBar(
+          textColor: Colors.white,
             color: Colors.red,
             error: 'Please Enter Valid Email',
             context: context,
-            height: height);
+            );
       });
     } else if (passwordController.text.isEmpty) {
       setState(() {
         isValidate = false;
         Snackbar.snackBar(
+          textColor: Colors.white,
             color: Colors.red,
             error: 'Password is required',
             context: context,
-            height: height);
+            );
       });
     } else if (!RegExp(r'^.{6,}$').hasMatch(passwordController.text)) {
       setState(() {
         isValidate = false;
         Snackbar.snackBar(
+          textColor: Colors.white,
             color: Colors.red,
             error: 'Please Enter Valid Password',
             context: context,
-            height: height);
+            );
       });
     } else if (_formKey.currentState!.validate()) {
       await _auth
@@ -203,16 +206,17 @@ class _SignInState extends State<SignIn> {
         setState(() {
           isValidate = true;
           Snackbar.snackBar(
+            textColor: Colors.white,
               color: Colors.red,
               error: 'Successfully Login',
               context: context,
-              height: height);
+              );
         });
       }).catchError((e) {
         Snackbar.snackBar(
+          textColor: Colors.white,
             error: 'Account Not Found',
             context: context,
-            height: height,
             color: Colors.red);
       });
     }

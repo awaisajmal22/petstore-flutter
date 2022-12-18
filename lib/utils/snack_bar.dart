@@ -27,16 +27,19 @@ class Snackbar {
     {
        required String error,
     required BuildContext context,
-    required double height,
     required Color color,
+    required Color textColor
 
     }
   ) {
+    final height = MediaQuery.of(context).size.height;
+
     return Fluttertoast.showToast(
       backgroundColor: color,
       gravity: ToastGravity.TOP,
       toastLength: Toast.LENGTH_LONG,
-      msg: error
+      msg: error, 
+      textColor: textColor,
       );
 
   }

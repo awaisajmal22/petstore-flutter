@@ -2,6 +2,10 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:petstore/utils/app_text_button.dart';
 import 'package:petstore/utils/colors.dart';
+import 'package:provider/provider.dart';
+
+import '../../../../../../utils/sharepreferrence.dart';
+import '../../../../../account/account_screen.dart';
 
 class CarouselWithDotsPage extends StatefulWidget {
   @override
@@ -13,19 +17,31 @@ class _CarouselWithDotsPageState extends State<CarouselWithDotsPage> {
   bool isPressed = false;
   @override
   Widget build(BuildContext context) {
+    final pref = Provider.of<SharedPref>(context,listen: false);
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     var shareandunheartFunction = [
       () {},
       () {
-        setState(() {
+        if (pref.user == null) {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: ((context) => AccountScreen(selectedPage: 0))));
+        } else {
+          print('user Loged in');
+          setState(() {
           isPressed = !isPressed;
         });
+        }
+
+        
       }
     ];
     var shareandunheartIcon = [
       Icon(Icons.file_upload_outlined),
-      Icon(Icons.favorite_border_outlined, color: isPressed == false ? Colors.black : Colors.red,)
+      Icon(
+        Icons.favorite_border_outlined,
+        color: isPressed == false ? Colors.black : Colors.red,
+      )
     ];
     List<String> imgList = [
       'assets/Dashboard/placeholder.png',

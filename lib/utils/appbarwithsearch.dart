@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:petstore/utils/badge.dart';
 import 'package:petstore/utils/colors.dart';
 
@@ -9,6 +10,11 @@ AppBar CustomAppBarwithSearch(
   final width = MediaQuery.of(context).size.width;
 
   return AppBar(
+    systemOverlayStyle: SystemUiOverlayStyle(
+      statusBarColor: Colors.greenAccent,
+      statusBarBrightness: Brightness.dark,
+      systemNavigationBarColor: Colors.black
+    ),
     automaticallyImplyLeading: false,
     leading: title == 'Search for products' ? GestureDetector(
       onTap: () {
