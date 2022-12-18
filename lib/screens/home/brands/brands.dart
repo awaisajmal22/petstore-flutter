@@ -2,6 +2,8 @@ import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:petstore/utils/badge.dart';
+import 'package:petstore/utils/customeAppBar.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class ShopByBrands extends StatefulWidget {
@@ -42,7 +44,10 @@ class _ShopByBrandsState extends State<ShopByBrands> {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: AppBar(),
+      appBar: customAppBar(context: context, title: 'Shop By Brand', actionButton: Badge(value: 2.toString(), color: Colors.red), searchButton: Container(
+        height: 0,
+        width: 0,
+      )),
       body: Stack(
         children: [
           Container(
