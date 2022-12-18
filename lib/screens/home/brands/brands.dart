@@ -6,6 +6,8 @@ import 'package:petstore/utils/badge.dart';
 import 'package:petstore/utils/customeAppBar.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
+import '../../../utils/size_config.dart';
+
 class ShopByBrands extends StatefulWidget {
   static const routeName = '/brands';
 
@@ -48,47 +50,50 @@ class _ShopByBrandsState extends State<ShopByBrands> {
         height: 0,
         width: 0,
       )),
-      body: Stack(
-        children: [
-          Container(
-            margin: const EdgeInsets.all(20),
-            child: ScrollablePositionedList.builder(
-                itemScrollController: _itemScrollController,
-                itemPositionsListener: _itemPositionsListener,
-                itemCount: name.length,
-                itemBuilder: (context, index) => Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          name[index],
-                          style: const TextStyle(fontSize: 20),
-                        ),
-                       
-                        const SizedBox(
-                          height: 40,
-                        )
-                      ],
-                    )),
-          ),
-          Container(
-            alignment: Alignment.centerRight,
-            padding: const EdgeInsets.only(right: 20),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: alphabets
-                  .map((alphabet) => InkWell(
-                        onTap: () {
-                          setSearchIndex(alphabet);
-                        },
-                        child: Text(
-                          alphabet,
-                          style: TextStyle(fontSize: 16, color: Colors.black),
-                        ),
-                      ))
-                  .toList(),
+      body: Container(
+        height: 78.5 * SizeConfig.heightMultiplier,
+        child: Stack(
+          children: [
+            Container(
+              margin: const EdgeInsets.only(left: 20,right: 20, top: 20),
+              child: ScrollablePositionedList.builder(
+                  itemScrollController: _itemScrollController,
+                  itemPositionsListener: _itemPositionsListener,
+                  itemCount: name.length,
+                  itemBuilder: (context, index) => Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            name[index],
+                            style: const TextStyle(fontSize: 20),
+                          ),
+                         
+                          const SizedBox(
+                            height: 40,
+                          )
+                        ],
+                      )),
             ),
-          )
-        ],
+            Container(
+              alignment: Alignment.centerRight,
+              padding: const EdgeInsets.only(right: 20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: alphabets
+                    .map((alphabet) => InkWell(
+                          onTap: () {
+                            setSearchIndex(alphabet);
+                          },
+                          child: Text(
+                            alphabet,
+                            style: TextStyle(fontSize: 16, color: Colors.black),
+                          ),
+                        ))
+                    .toList(),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
